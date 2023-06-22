@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, session
 import pandas as pd
 import matplotlib.pyplot as plt
 import sqlite3
+import requests
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
@@ -35,10 +36,20 @@ def login():
 
 @app.route('/dashboard')
 def dashboard():
-    r = request.get_json('https://bdl.stat.gov.pl/api/v1/data/by-variable/65809?format=json&year=2004&year=2005&year=2006')
-    x = r
-    df = pd.DataFrame(x['teams'])
-    plt.plot(df)
+    r = requests.get('http://api.nbp.pl/api/exchangerates/rates/a/gbp/last/10/?format=json')
+    x = r.json()
+    df = pd.DataFrame(x)
+    df = pd.DataFrame(x['rates'])
+    df = df[['effectiveDate', 'mid']]
+    df['effectiveDate'] = pd.to_datetime(df['effectiveDate'])
+    # Plot the data
+    df.plot(x='effectiveDate', y='mid', marker='o')
+
+    # Add labels and title
+    plt.xlabel('Effective Date')
+    plt.ylabel('Mid Value')
+    plt.title('GBP Mid Value')
+
     graph_file = 'static/graph.png'
     plt.savefig(graph_file)
 
