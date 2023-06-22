@@ -1,0 +1,36 @@
+<div id="dialog">
+    <h2>{{ title }}</h2>
+    <p>{{ content }}</p>
+    <button id="close-btn">Close</button>
+</div>
+  
+<button id="open-dialog-btn">Open Dialog</button>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var dialog = document.getElementById('dialog');
+    var openBtn = document.getElementById('open-dialog-btn');
+    var closeBtn = document.getElementById('close-btn');
+  
+    openBtn.addEventListener('click', function() {
+      dialog.style.display = 'block';
+    });
+  
+    closeBtn.addEventListener('click', function() {
+      dialog.style.display = 'none';
+    });
+  });
+</script>
+
+<style>
+  #dialog {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+</style>
