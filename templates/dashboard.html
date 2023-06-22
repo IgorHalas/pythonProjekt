@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, {{ username }}!</h1>
+    <a href="/logout">Logout</a>
+    <h1>DataFrame Items</h1>
+    <table>
+        <tr>
+            {% for header in column_headers %}
+            <th>{{ header }}</th>
+            {% endfor %}
+        </tr>
+        {% for row in data_rows %}
+        <tr>
+            {% for header in column_headers %}
+            <td>{{ row[header] }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Revenue Trend</h1>
+    <img src="{{ graph_file }}" alt="Graph">
+</body>
+</html>
