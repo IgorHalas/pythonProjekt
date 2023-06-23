@@ -1,21 +1,21 @@
 <div id="dialog">
-    <h2>{{ title }}</h2>
-    <p>{{ content }}</p>
-    <button id="close-btn">Close</button>
+  <h2>{{ title }}</h2>
+  <p>{{ content }}</p>
+  <button id="close-btn">Close</button>
 </div>
-  
+
 <button id="open-dialog-btn">Open Dialog</button>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     var dialog = document.getElementById('dialog');
     var openBtn = document.getElementById('open-dialog-btn');
     var closeBtn = document.getElementById('close-btn');
-  
-    openBtn.addEventListener('click', function() {
+
+    openBtn.addEventListener('click', function () {
       dialog.style.display = 'block';
     });
-  
-    closeBtn.addEventListener('click', function() {
+
+    closeBtn.addEventListener('click', function () {
       dialog.style.display = 'none';
     });
   });
