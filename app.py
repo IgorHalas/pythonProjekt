@@ -68,9 +68,9 @@ def dashboard():
         df.plot(x='data', y='cena', marker='o')
         
         # Add labels and title
-        plt.xlabel('Data')
-        plt.ylabel('Cena [PLN]')
-        plt.title('Ceny złota z ostatnich ' + str(days) +' dni')
+        plt.xlabel('Date')
+        plt.ylabel('Price PLN/g')
+        plt.title('Gold price for the last ' + str(days) +' days')
         plt.legend().remove()
         graph_file = 'static/graph' + str(days) + 'dni.png'
         plt.savefig(graph_file)

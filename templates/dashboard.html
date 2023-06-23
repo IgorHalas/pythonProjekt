@@ -36,7 +36,8 @@
 
   <main>
 
-    <div id="carouselExampleDark" class="carousel carousel-dark slide" style="margin: 35px auto 20px auto; max-width: 1000px; max-height: 1200px;">
+    <div id="carouselExampleDark" class="carousel carousel-dark slide"
+      style="margin: 35px auto 20px auto; max-width: 1000px; max-height: 1200px;">
       <div class="carousel-indicators" style="margin-bottom: 150px;">
         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
           aria-current="true" aria-label="Slide 1"></button>
@@ -48,7 +49,7 @@
         <div class="carousel-item {%if i == 0: %} active {% endif %}" data-bs-interval="10000">
           <img src="{{graph_files[i]}}" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block" style="padding-top: 520px;">
-            <h5 style="margin-bottom: 135px;">Średnia: {{avgs[i]}} zł, mediana: {{medians[i]}} zł.</h5>
+            <h5 style="margin-bottom: 135px;">Average: {{avgs[i]}} PLN, median: {{medians[i]}} PLN.</h5>
           </div>
         </div>
         {%endfor%}

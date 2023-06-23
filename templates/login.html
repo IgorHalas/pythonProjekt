@@ -49,7 +49,7 @@
                   class="form-control form-control-lg {% if passwordValid: %} is-valid {% else %} is-invalid {% endif %}" />
                 <label class="form-label" for="passwordInput"></label>
                 <div class="invalid-feedback">
-                  {% if passwordValid: %}
+                  {% if passwordErrorMessage: %}
                   {{passwordErrorMessage}}
                   {% else %}
                   Field is empty!
